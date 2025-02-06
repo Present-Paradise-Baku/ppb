@@ -10,26 +10,29 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
             height: 100vh;
             background-image: url('https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg'); /* Şəkli arxa fon kimi təyin et */
             background-size: cover; /* Şəkli bütün səhifəyə uyğunlaşdır */
             background-position: center; /* Şəkli mərkəzə çək */
+            background-attachment: fixed; /* Şəkli sabit et (scroll zamanı tərpənməsin) */
+            overflow: hidden; /* Bütün səhifə üçün scroll-u gizlə */
         }
 
         /* Linklər bölməsi */
         .links {
             width: 100%;
+            height: 100vh; /* Bütün ekran hündürlüyü */
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
             background-color: transparent; /* Boşluğu ləğv et */
+            overflow-y: auto; /* Adlar üçün scroll əlavə et */
         }
 
         .links a {
             display: block; /* Linkləri alt alta düzür */
-            font-size: 18px;
+            font-size: 24px; /* Adları böyüt */
+            font-weight: bold; /* Adları qalın et */
             margin-bottom: 10px;
             padding: 10px;
             background-color: transparent; /* Şəffaf fon */
@@ -43,19 +46,21 @@
             background-color: rgba(255, 255, 255, 0.2); /* Hover zamanı şəffaf ağ fon */
         }
 
+        /* Sıra nömrələri üçün */
+        .links a::before {
+            content: counter(list-item) ". "; /* Sıra nömrəsi əlavə et */
+            counter-increment: list-item; /* Nömrələməni artır */
+            font-weight: bold; /* Nömrələri qalın et */
+        }
+
         /* Mobil uyğunluq */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-
             .links {
                 padding: 10px;
             }
 
             .links a {
-                font-size: 16px;
-                padding: 8px;
+                font-size: 20px; /* Mobil üçün adları bir az kiçilt */
             }
         }
     </style>
@@ -63,6 +68,7 @@
 <body>
     <!-- Linklər bölməsi -->
     <div class="links">
+        <a href="https://www.instagram.com/efiwwwwww/">efiwwwww</a>
         <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
         <a href="https://www.instagram.com/1asadova/">İlahə Əsədova</a>
         <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
