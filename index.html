@@ -15,8 +15,8 @@
             height: 100vh;
         }
 
-        /* Adlar bölməsi */
-        .names {
+        /* Linklər bölməsi */
+        .links {
             width: 100%;
             background-color: #808080; /* Boz rəng */
             padding: 10px;
@@ -24,18 +24,20 @@
             text-align: center;
         }
 
-        .names ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .names li {
+        .links a {
+            display: block; /* Linkləri alt alta düzür */
             font-size: 18px;
             margin-bottom: 10px;
             padding: 10px;
             background-color: #ffffff; /* Ağ rəng */
             border-radius: 5px;
+            text-decoration: none; /* Linkin altındakı xətti silir */
+            color: #000000; /* Link rəngi */
+            transition: background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #e0e0e0; /* Hover zamanı fon rəngi */
         }
 
         /* Şəkil bölməsi */
@@ -60,18 +62,18 @@
                 flex-direction: column;
             }
 
-            /* Şəkil üstdə, adlar altda */
+            /* Şəkil üstdə, linklər altda */
             .image-container {
                 order: -1; /* Şəkli üstə köçür */
                 height: 60vh; /* Şəklin hündürlüyü */
             }
 
-            .names {
-                height: 40vh; /* Adların hündürlüyü */
-                overflow-y: auto; /* Adlar çoxdursa scroll */
+            .links {
+                height: 40vh; /* Linklərin hündürlüyü */
+                overflow-y: auto; /* Linklər çoxdursa scroll */
             }
 
-            .names li {
+            .links a {
                 font-size: 16px;
                 padding: 8px;
             }
@@ -84,12 +86,10 @@
         <img src="https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg" alt="Şəkil">
     </div>
 
-    <!-- Adlar bölməsi -->
-    <div class="names">
-        <ul>
-            <a href="https://www.instagram.com/efiwwwwww/">efiwwwww</a>
-            <a href="https://www.instagram.com/kerimli_b176/">kerimli_b176</a>
-        </ul>
+    <!-- Linklər bölməsi -->
+    <div class="links">
+        <a href="https://www.instagram.com/efiwwwwww/">efiwwwww</a>
+        <a href="https://www.instagram.com/kerimli_b176/">kerimli_b176</a>
     </div>
 </body>
 </html>
