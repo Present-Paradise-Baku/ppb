@@ -15,34 +15,27 @@
             height: 100vh;
         }
 
-        /* Nömrələr bölməsi */
-        .numbers {
+        /* Adlar bölməsi */
+        .names {
             width: 100%;
             background-color: #808080; /* Boz rəng */
             padding: 10px;
             box-sizing: border-box;
-            overflow-y: auto;
             text-align: center;
         }
 
-        .numbers ul {
+        .names ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
-        .numbers li {
+        .names li {
             font-size: 18px;
             margin-bottom: 10px;
-            cursor: pointer;
             padding: 10px;
             background-color: #ffffff; /* Ağ rəng */
             border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .numbers li:hover {
-            background-color: #e0e0e0; /* Açıq boz rəng */
         }
 
         /* Şəkil bölməsi */
@@ -67,18 +60,18 @@
                 flex-direction: column;
             }
 
-            /* Şəkil üstdə, nömrələr altda */
+            /* Şəkil üstdə, adlar altda */
             .image-container {
                 order: -1; /* Şəkli üstə köçür */
                 height: 60vh; /* Şəklin hündürlüyü */
             }
 
-            .numbers {
-                height: 40vh; /* Nömrələrin hündürlüyü */
-                overflow-y: auto; /* Nömrələr çoxdursa scroll */
+            .names {
+                height: 40vh; /* Adların hündürlüyü */
+                overflow-y: auto; /* Adlar çoxdursa scroll */
             }
 
-            .numbers li {
+            .names li {
                 font-size: 16px;
                 padding: 8px;
             }
@@ -86,41 +79,18 @@
     </style>
 </head>
 <body>
-    <!-- Sol tərəf: Nömrələr -->
-    <div class="numbers">
-        <ul>
-            <li>Nömrə 1</li>
-            <li>Nömrə 2</li>
-            <li>Nömrə 3</li>
-            <li>Nömrə 4</li>
-            <li>Nömrə 5</li>
-        </ul>
-    </div>
-
-    <!-- Sağ tərəf: Şəkil -->
+    <!-- Şəkil bölməsi -->
     <div class="image-container">
         <img src="https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg" alt="Şəkil">
     </div>
 
-    <script>
-        // Nömrələrə klikləndikdə şəkil dəyişdir
-        const numbers = document.querySelectorAll('.numbers li');
-        const imageContainer = document.querySelector('.image-container img');
-
-        // Şəkillərin siyahısı (nümunə üçün)
-        const images = [
-            'https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg',
-            'https://via.placeholder.com/800x600?text=Şəkil+1',
-            'https://via.placeholder.com/800x600?text=Şəkil+2',
-            'https://via.placeholder.com/800x600?text=Şəkil+3',
-            'https://via.placeholder.com/800x600?text=Şəkil+4',
-        ];
-
-        numbers.forEach((number, index) => {
-            number.addEventListener('click', () => {
-                imageContainer.src = images[index];
-            });
-        });
-    </script>
+    <!-- Adlar bölməsi -->
+    <div class="names">
+        <ul>
+            <li>Habil</li>
+            <li>Qabil</li>
+            <li>Eli</li>
+        </ul>
+    </div>
 </body>
 </html>
