@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Present Paradise Baku</title>
     <style>
+        /* Ümumi stil */
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            height: 100vh;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
+        /* Nömrələr bölməsi */
         .numbers {
-            width: 20%;
+            width: 100%;
             background-color: #f0f0f0;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
             overflow-y: auto;
+            text-align: center;
         }
 
         .numbers ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
 
         .numbers li {
-            font-size: 24px;
+            font-size: 18px;
             margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
+        .numbers li:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Şəkil bölməsi */
         .image-container {
-            width: 80%;
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,12 +60,40 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Mobil uyğunluq */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .numbers {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+            }
+
+            .numbers li {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .image-container {
+                width: 100%;
+                height: 70vh;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Sol tərəf: Nömrələr -->
     <div class="numbers">
         <ul>
+            <li>Nömrə 1</li>
+            <li>Nömrə 2</li>
+            <li>Nömrə 3</li>
+            <li>Nömrə 4</li>
+            <li>Nömrə 5</li>
         </ul>
     </div>
 
@@ -59,5 +101,26 @@
     <div class="image-container">
         <img src="https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg" alt="Şəkil">
     </div>
+
+    <script>
+        // Nömrələrə klikləndikdə şəkil dəyişdir
+        const numbers = document.querySelectorAll('.numbers li');
+        const imageContainer = document.querySelector('.image-container img');
+
+        // Şəkillərin siyahısı (nümunə üçün)
+        const images = [
+            'https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg',
+            'https://via.placeholder.com/800x600?text=Şəkil+1',
+            'https://via.placeholder.com/800x600?text=Şəkil+2',
+            'https://via.placeholder.com/800x600?text=Şəkil+3',
+            'https://via.placeholder.com/800x600?text=Şəkil+4',
+        ];
+
+        numbers.forEach((number, index) => {
+            number.addEventListener('click', () => {
+                imageContainer.src = images[index];
+            });
+        });
+    </script>
 </body>
 </html>
