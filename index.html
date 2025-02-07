@@ -49,7 +49,7 @@
         /* Sıra nömrələri üçün */
         .links a::before {
             content: counter(list-item) ". "; /* Sıra nömrəsi əlavə et */
-            counter-increment: list-item; /* Nömrələməni artır */
+            counter-increment: list-item -1; /* Nömrələməni artır */
             font-weight: bold; /* Nömrələri qalın et */
         }
 
