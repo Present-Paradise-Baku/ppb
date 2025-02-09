@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Present Paradise Baku</title>
+    <title>Login - Present Paradise Baku</title>
     <style>
         /* Ümumi stil */
         body {
@@ -18,8 +18,48 @@
             overflow: hidden;
         }
 
+        /* Login forması */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #002244;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #004466;
+        }
+
         /* Linklər bölməsi */
         .links {
+            display: none; /* Başlanğıcda gizli */
             width: 100%;
             height: 100vh;
             padding: 20px;
@@ -27,7 +67,7 @@
             text-align: left;
             background-color: transparent;
             overflow-y: auto;
-            counter-reset: list-item 0; /* Ümumi link sayı + 1 (bu nümunədə 30 link var) */
+            counter-reset: list-item 0;
         }
 
         .links a {
@@ -40,7 +80,12 @@
             border-radius: 10px;
             text-decoration: none;
             color: #002244;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            opacity: 0; /* Başlangıçta gizli */
+            transition: opacity 1s ease-in-out; /* Yavaşça görünmesini sağlamak için */
+        }
+
+        .links a.show {
+            opacity: 1; /* Gösterildiğinde opaklık 1 olacak */
         }
 
         .links a:hover {
@@ -50,9 +95,9 @@
 
         /* Sıra nömrələri üçün (tərs sıra) */
         .links a::before {
-            content: counter(list-item) ". "; /* Sıra nömrəsi əlavə et */
-            counter-increment: list-item 1; /* Nömrələri tərsinə çevir */
-            font-weight: bold; /* Nömrələri qalın et */
+            content: counter(list-item) ". ";
+            counter-increment: list-item 1;
+            font-weight: bold;
         }
 
         /* Mobil uyğunluq */
@@ -69,14 +114,58 @@
     </style>
 </head>
 <body>
-    <!-- Linklər bölməsi -->
-    <div class="links">
-        <a href="https://www.instagram.com/memmedli__1996/">memmedli__1996</a>
-        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
-        <a href="https://www.instagram.com/1asadova/">İlahə Əsədova</a>
-        <a href="https://www.instagram.com/raulhuseynli_/">raulhuseynli_</a>
-        <a href="https://www.instagram.com/vasif_rubabe/">vasif_rubabe</a>
-        <a href="https://www.instagram.com/eltac_mv/">eltac_mv</a>
+    <!-- Login səhifəsi -->
+    <div id="login" class="login-container">
+        <div class="login-form">
+            <h2>MÜSABİQƏMİZƏ XOŞ GƏLMİSİNİZ</h2>
+            <input type="text" id="username" placeholder="İstifadəçi adı" />
+            <input type="password" id="password" placeholder="Şifrə" />
+            <button onclick="login()">Daxil ol</button>
+        </div>
     </div>
+
+    <!-- Linklər bölməsi -->
+    <div id="links" class="links">
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+    </div>
+
+    <script>
+        // "Enter" düyməsi ilə login funksiyasını işə salmaq
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                login();
+            }
+        });
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === "admin" && password === "admin") {
+                // Düzgün məlumat daxil edildikdə login səhifəsini gizlət və linkləri göstər
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('links').style.display = 'block';
+                
+                // Linkləri tək-tək göstərmək
+                var links = document.querySelectorAll('.links a');
+                links.forEach(function(link, index) {
+                    setTimeout(function() {
+                        link.classList.add('show');
+                    }, index * 500); // Her bağlantı için 500ms gecikme
+                });
+            } else {
+                alert("Yanlış istifadəçi adı və ya şifrə.");
+            }
+        }
+    </script>
 </body>
 </html>
